@@ -1,26 +1,33 @@
-项目名称：行星数据处理服务 (Planet API Service)
-1. 项目背景
-本项目是一个基于 Flask 框架开发的轻量级 Web 后端应用 。核心功能是调用第三方 Planets API 获取原始天文数据，并通过数学建模实现行星物理参数的高精度换算与清洗 。该项目在课程评估中获得了 30/30 满分评价 。
+# 🪐 Planet API 数据处理与 Flask 应用开发
 
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+  <img src="https://img.shields.io/badge/RESTful_API-4479A1?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Score-30%2F30-brightgreen?style=for-the-badge" />
+</p>
 
-2. 核心工作与技术实现
+## 📝 项目背景
+本项目是一个基于 **Flask** 框架开发的轻量级 Web 应用。系统通过对接外部 **Planets API** 获取行星原始数据，并利用后端 Python 逻辑进行高精度的二次换算与处理，为用户提供标准化的行星物理参数查询服务。
 
-RESTful 接口设计：独立设计并实现了 radius（半径）、distance（距离）、tilt（倾角）等 3 个核心 API 端点 。
+> **项目成果**：独立完成“开发-测试-部署”全流程，获课程评估 **30/30 满分**评价。
 
+---
 
+## ✨ 核心技术亮点
 
-高精度数学计算：利用 Python math 库，通过行星表面积反算半径，并进行角度与弧度的单位转换 。通过严格的公式推导，确保计算误差控制在 0.5% 以内 。
+* **RESTful 接口设计**：设计并实现 `/radius` 等 3 个核心端点，使用 Python `requests` 库完成与外部 API 的高效对接，并统一处理了异构数据格式问题。
+* **高精度数学建模**：借助 Python `math` 库，通过行星表面积反算半径等核心公式，将计算结果误差率严格控制在 **0.5% 以内**。
+* **严谨的系统测试**：编写并执行了 10 余项接口测试用例，全面覆盖**参数异常**、**数据为空**及**边界值**等场景，保障了系统的健壮性。
+* **云端生产部署**：项目已成功部署于 **PythonAnywhere** 平台，实测线上接口可访问率达到 **100%**。
 
+---
 
-异常处理与数据清洗：针对第三方接口返回的数据，处理了 2 类格式不兼容问题，并覆盖了参数异常、数据为空等 10 余种边界测试场景 。
-
-
-自动化环境管理：配置了标准的 .gitignore 和 requirements.txt 文件，支持环境的一键搭建与部署。
-
-3. 项目成果
-
-云端部署：项目已成功部署于 PythonAnywhere 云平台，保障线上接口可访问率达 100% 。
-
-
-工程化规范：建立了从开发、本地测试到云端部署的完整全流程体系 。# Planet-API-Service
-
+## 🛠️ 目录结构说明
+```text
+.
+├── app.py              # Flask 应用主入口，包含接口路由
+├── logic.py            # 核心数学换算逻辑与 API 请求处理
+├── requirements.txt    # 项目依赖清单
+├── .gitignore          # 忽略非必要文件
+└── README.md           # 项目文档
